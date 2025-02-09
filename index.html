@@ -74,30 +74,6 @@
   </style>
 </head>
 <body>
-  <script>
-    const images = document.querySelectorAll('.gallery img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightbox-image');
-    const closeLightbox = document.getElementById('close-lightbox');
-
-    images.forEach(image => {
-      image.addEventListener('click', () => {
-        lightboxImage.src = image.src;
-        lightbox.style.display = 'flex';
-      });
-    });
-
-    closeLightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-    });
-
-    lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox) {
-        lightbox.style.display = 'none';
-      }
-    });
-  </script>
-  
   <header>
     <h1>Ab 01.04: Helle 3,5-Zimmer Wohnung im Herzen von Rodenkirchen</h1>
   </header>
@@ -126,6 +102,36 @@
     <img src="11-SZ1.jpg" alt="Placeholder Image 11">
     <img src="zEinrichtung.png" alt="Placeholder Image 12">
   </section>
+
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox">
+    <button class="close" id="close-lightbox">&times;</button>
+    <img id="lightbox-image" src="" alt="Enlarged Image">
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const closeLightbox = document.getElementById('close-lightbox');
+
+    images.forEach(image => {
+      image.addEventListener('click', () => {
+        lightboxImage.src = image.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    closeLightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 </html>
